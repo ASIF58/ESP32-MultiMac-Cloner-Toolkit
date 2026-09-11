@@ -1,23 +1,33 @@
-# ESP32-MultiMac-Cloner-Toolkit
+# ESP32 MultiMac Cloner Toolkit
 
-A simple ESP32 project with a built-in web portal to scan Wi-Fi networks, connect to open SSIDs, and sequentially clone/rotate selected MAC addresses with an optional infinite loop.
+An advanced embedded networking toolkit designed for the ESP32, featuring a dark-mode web dashboard, persistent flash configuration storage, state machine automation, and dynamic MAC address rotation.
+
+---
 
 ## Features
-- Web UI hosted directly on the ESP32 (AP Mode)
-- Multi-MAC rotation with checkboxes and custom MAC input
-- Wi-Fi scanner & quick-connect for open networks
-- Optional infinite loop mode with customizable hold time per MAC
-- Custom hostname handling
 
-## Setup & Flashing
-1. Open the `.ino` file in the Arduino IDE.
-2. Make sure the ESP32 board package is installed.
-3. Select your board (e.g., **ESP32 Dev Module**) and flash the sketch.
-4. Set the Serial Monitor to `115200` baud.
+- **Embedded Web Dashboard:** Responsive dark-mode administrative interface served directly from the ESP32 Access Point (`192.168.4.1`) for mobile and desktop control.
+- **State Machine Architecture:** Robust operational management across four distinct states (`IDLE`, `CLONING`, `COOLING`, and `ENERGY_SAVER`).
+- **Persistent Flash Storage:** Securely saves and loads target SSIDs and passwords across reboots using the Arduino `Preferences` library.
+- **MAC Rotation & Hostname Spoofing:** Selective hardware address spoofing combined with dynamic client hostname switching (e.g., simulating set-top boxes) to test association table handling.
+- **Thermal & Energy Management:** Built-in active session limits (1 hour) triggering automated cool-down periods, alongside low-power range checking when targets go offline.
 
-## How to Use
-1. Connect to the ESP32's Wi-Fi access point:
-   - **SSID:** `ESP32_Toolkit`
-   - **Password:** `12345678`
-2. Open your browser and go to `http://192.168.4.1`.
-3. Enter your target SSID, password (if any), select your MAC addresses, and start the sequence.
+---
+
+## Hardware & Environment Requirements
+
+- **Microcontroller:** ESP32 Development Board (NodeMCU-32s, ESP32-WROOM-32, etc.)
+- **IDE:** Arduino IDE or PlatformIO
+- **Dependencies:** 
+  - `WiFi` (Built-in)
+  - `WebServer` (Built-in)
+  - `esp_wifi.h` (Built-in)
+  - `Preferences` (Built-in)
+
+---
+
+## Getting Started
+
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/ASIF58/ESP32-MultiMac-Cloner-Toolkit.git](https://github.com/ASIF58/ESP32-MultiMac-Cloner-Toolkit.git)
